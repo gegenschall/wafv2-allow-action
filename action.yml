@@ -19,9 +19,9 @@ inputs:
     default: REGIONAL
   maxRetries:
     description: How many times should it try to determine the runners public IP
-    default: 10
+    default: '10'
   region:
     description: AWS Region
 runs:
-  using: node12
+  using: node20
   main: dist/index.js

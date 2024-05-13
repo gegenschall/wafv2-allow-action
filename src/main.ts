@@ -29,8 +29,12 @@ export async function run(): Promise<void> {
     }
 
     core.setOutput('address', NewAddress)
-  } catch (error) {
-    core.setFailed(error.message)
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      core.setFailed(error.message)
+    } else {
+      core.setFailed(`Unknown error: ${error}`)
+    }
   }
 }
 
